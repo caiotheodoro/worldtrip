@@ -7,6 +7,7 @@ export const theme = extendTheme({
             'highlight': '#FFBA08',
             'dark': '#47585B',
             'light': '#FFFFFF',
+            'info': '#DADADA',
         }
     },
     fonts: {
