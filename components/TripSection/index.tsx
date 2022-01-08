@@ -5,8 +5,8 @@ export const TripSection = () => {
     return (
         <Box w="100%">
             <Items />
-
-            <Flex alignItems={"center"} alignContent={"center"} flexDir={"column"}>
+        
+            <Flex alignItems={"center"}  alignContent={"center"} flexDir={"column"}>
                 <Box h={"2px"} alignSelf={"center"} w="160px" background={"color.dark"} />
 
                 <Box mt="20">
@@ -18,5 +18,6 @@ export const TripSection = () => {
                 </Box>
             </Flex>
         </Box>
+
     )
 }

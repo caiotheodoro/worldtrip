@@ -2,7 +2,7 @@ import { Box, Flex, Heading, HStack, Image } from "@chakra-ui/react"
 
 export const Items = () => {
     return (
-        <Flex w="100%" my="100px" maxW={1480} mx="auto" px="6" >
+        <Flex w="100%" marginBlockStart={20} maxW={1480} mx="auto" px="6" >
             <HStack spacing={"200px"}
                 mx={"8"}
                 pr={"8"}
