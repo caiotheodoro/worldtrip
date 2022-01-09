@@ -8,8 +8,8 @@ import styles from '../styles/Home.module.css'
 
 export default function Home() {
   return (
-    <Flex w="100vw"
-      h="100vh"
+    <Flex 
+     
       flexDirection="column"
     >
       <Header />

@@ -3,7 +3,7 @@ import { Box, Flex, Heading, Image } from "@chakra-ui/react"
 export const Banner = () => {
     return (
         <Flex
-            w="100vw"
+          w="100%"
         >
             <Box
                 bgImage={'Background.png'}
