@@ -12,7 +12,7 @@ export default function Home() {
      
       flexDirection="column"
     >
-      <Header />
+      <Header hasBack={false}/>
       <Banner />
       <TripSection />
     </Flex>

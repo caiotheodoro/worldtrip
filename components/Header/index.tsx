@@ -1,6 +1,7 @@
-import { Flex, Image } from "@chakra-ui/react"
+import { Box, Flex, Image } from "@chakra-ui/react"
+import Link from "next/link"
 
-export const Header = () => {
+export const Header = ({hasBack}) => {
     return (
         <Flex
             w="100vw"
@@ -8,6 +9,12 @@ export const Header = () => {
             align="center"
             justify="center"
         >
+            { hasBack &&
+                <Link href={"/"}  >
+                    <Image cursor={"pointer"} src='back.svg' alt='Voltar' position={"absolute"} left={"10%"} />
+                </Link>
+
+            }
             <Image src='Logo.svg' alt='WorldTrip' w="184px" />
         </Flex>
     )
