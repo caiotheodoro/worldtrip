@@ -5,7 +5,7 @@ export const Header = ({hasBack}) => {
     return (
         <Flex
             w="100%"
-            h="140px"
+            h={["140px","120px"]}
             align="center"
             justify="center"
         >

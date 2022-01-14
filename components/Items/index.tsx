@@ -1,34 +1,59 @@
-import { Box, Flex, Heading, HStack, Image } from "@chakra-ui/react"
+import { Box, Flex, Heading, HStack, Image, Wrap } from "@chakra-ui/react"
 
-export const Items = () => {
+export const Items = ({isDrawerSidebar}) => {
     return (
         <Flex w="100%" marginBlockStart={20} marginBlockEnd={20} maxW={1480} mx="auto" px="6" >
-            <HStack spacing={"200px"}
+            
+            <Wrap spacing='75px' >
+             <HStack spacing={"200px"}
                 mx={"8"}
                 pr={"8"}
                 justify={"space-between"}
-                py="1">
-                <Box alignItems={"center"} alignContent={"center"} >
-                    <Image src={'cocktail 1.svg'} w="100px" h="auto" />
-                    <Heading size="md" my="24px" fontWeight="semibold" textAlign={"center"}>vida noturna</Heading>
+                py="1"
+                > 
+                    { 
+                        data.map(({image, title}) => (
+                <Box alignItems={"center"} alignContent={"center"}  >
+                  {  !isDrawerSidebar && <Image src={image} w="100px" h="auto" /> }
+                    <Heading size="md" my="24px" fontWeight="semibold" textAlign={"center"}>{title}</Heading>
                 </Box>
-                <Box >
-                    <Image src={'surf 1.svg'} w="100px" h="auto" />
-                    <Heading size="md" my="24px" fontWeight="semibold" textAlign={"center"}>praia </Heading>
-                </Box>
-                <Box >
-                    <Image src={'building 1.svg'} w="100px" h="auto" />
-                    <Heading size="md" my="24px" fontWeight="semibold" textAlign={"center"}>moderno </Heading>
-                </Box>
-                <Box >
-                    <Image src={'museum 1.svg'} w="100px" h="auto" />
-                    <Heading size="md" my="24px" fontWeight="semibold" textAlign={"center"}>clássico </Heading>
-                </Box>
-                <Box >
-                    <Image src={'earth 1.svg'} w="100px" h="auto" />
-                    <Heading size="md" my="24px" fontWeight="semibold" textAlign={"center"}>e mais... </Heading>
-                </Box>
-            </HStack>
+                        ))
+                    }
+       
+           </HStack> 
+            </Wrap>
         </Flex>
     )
 }
+
+const data = [
+    {
+        id: 1,
+        image: 'cocktail 1.svg',
+        title: 'vida noturna',
+
+    },
+    {
+        id: 2,
+        image: 'surf 1.svg',
+        title: 'praia',
+    },
+    {
+        id: 3,
+        image: 'building 1.svg',
+        title: 'moderno',
+    },
+    {
+        id: 4,
+        image: 'museum 1.svg',
+        title: 'clássico',
+    },
+    {
+        id: 5,
+        image: 'earth 1.svg',
+        title: 'e mais...',
+    },
+
+  
+
+]

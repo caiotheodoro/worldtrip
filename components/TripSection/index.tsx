@@ -13,10 +13,10 @@ import { Slider } from "../Slider";
   // install Swiper modules
   SwiperCore.use([Keyboard,Pagination,Navigation]);
 
-export const TripSection = () => {
+export const TripSection = ({isDrawerSidebar}) => {
     return (
         <Box w="80%" alignContent={"center"} alignItems={"center"} alignSelf={"center"}>
-            <Items />
+            <Items isDrawerSidebar={isDrawerSidebar}/>
 
             <Flex alignItems={"center"} alignContent={"center"} flexDir={"column"}>
                 <Box   h={"2px"} alignSelf={"center"} w="160px" background={"color.dark"} />
