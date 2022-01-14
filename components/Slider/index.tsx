@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 import Link from 'next/link';
 
 
-export const Slider = () => {
+export const Slider = ({isDrawerSidebar}) => {
 
 
     return (
@@ -20,53 +20,67 @@ export const Slider = () => {
                 color='color.highlight'
 
             >
-                <SwiperSlide data-hash="slide1"  >
-                    <Link href="/continent#europe">
-                        <Box as="a"  >
-                            <img src="./continent/europe.png" alt="slide1" width={1700} height={"auto"} />
-                            <Heading size="3xl" position={"absolute"} top={"50%"} left={"50%"} transform={"translate(-50%, -50%)"} color="white" fontWeight="bold" lineHeight={"100px"} textAlign={"center"}>Europa <br /><Heading size="md">O continente mais antigo.</Heading> </Heading>
+                {
+                    data.map((item) => (
+
+                <SwiperSlide data-hash={item.datahash}  >
+                    <Link href={item.href}>
+                        <Box as="a">
+                            <img src={item.img} alt={item.datahash} width={1900} height={"500px"} style={{objectFit:'fill'}} />
+                            <Heading size="3xl" position={"absolute"} top={"50%"} left={"50%"} transform={"translate(-50%, -50%)"} color="white" fontWeight="bold" lineHeight={"100px"} textAlign={"center"}>{item.title} <br /><Heading size="md">{item.description}</Heading> </Heading>
                         </Box>
                     </Link>
                 </SwiperSlide>
+                    ))}
 
-                <SwiperSlide data-hash="slide2">
-                    <Link href="/continent#oceania">
-                        <Box as="a"  >
-                            <img src="./continent/oceania.png" alt="slide2" width={1700} height={"auto"} />
-                            <Heading size="3xl" position={"absolute"} top={"50%"} left={"50%"} transform={"translate(-50%, -50%)"} color="white" fontWeight="bold" lineHeight={"100px"} textAlign={"center"}>Oceania <br /><Heading size="md">Para aventuras selvagens.</Heading> </Heading>
-                        </Box>
-                    </Link>
-                </SwiperSlide>
-
-
-                <SwiperSlide data-hash="slide2">
-                    <Link href="/continent#africa">
-                        <Box as="a"  >
-                            <img src="./continent/africa.jpg" alt="slide3" width={1700} height={"auto"} />
-                            <Heading size="3xl" position={"absolute"} top={"50%"} left={"50%"} transform={"translate(-50%, -50%)"} color="white" fontWeight="bold" lineHeight={"100px"} textAlign={"center"}>Africa <br /><Heading size="md">Para grandes descobertas.</Heading> </Heading>
-                        </Box>
-                    </Link>
-
-                </SwiperSlide>
-                <SwiperSlide data-hash="slide2">
-                    <Link href="/continent#america">
-                        <Box as="a"  >
-                            <img src="./continent/america.jpg" alt="slide4" width={1700} height={"auto"} />
-                            <Heading size="3xl" position={"absolute"} top={"50%"} left={"50%"} transform={"translate(-50%, -50%)"} color="white" fontWeight="bold" lineHeight={"100px"} textAlign={"center"}>America <br /><Heading size="md">Para muita loucura.</Heading> </Heading>
-                        </Box>
-                    </Link>
-
-                </SwiperSlide>
-                <SwiperSlide data-hash="slide2">
-                    <Link href="/continent#asia">
-                        <Box as="a"  >
-                            <img src="./continent/asia.jpg" alt="slide5" width={1700} height={"auto"} />
-                            <Heading size="3xl" position={"absolute"} top={"50%"} left={"50%"} transform={"translate(-50%, -50%)"} color="white" fontWeight="bold" lineHeight={"100px"} textAlign={"center"}>Asia <br /><Heading size="md">Para conhecer diferentes culturas.</Heading> </Heading>
-                        </Box>
-                    </Link>
-
-                </SwiperSlide>
+           
             </Swiper>
         </Box>
     )
+    
 }
+
+const data = [
+    {
+        id: 1,
+        datahash: "slide1",
+        img: "./continent/europe.png",
+        href: "/continent#europe",
+        title: "Europa",
+        description: "O continente mais antigo."
+
+    },
+    {
+        id: 2,
+        datahash: "slide2",
+        img: "./continent/oceania.png",
+        href: "/continent#oceania",
+        title: "Oceania",
+        description: "Para aventuras selvagens."
+    },
+    {
+        id: 3,
+        datahash: "slide3",
+        img: "./continent/africa.jpg",
+        href: "/continent#africa",
+        title: "Africa",
+        description: "Para grandes descobertas."
+    },
+    {
+        id: 4,
+        datahash: "slide4",
+        img: "./continent/america.jpg",
+        href: "/continent#america",
+        title: "America",
+        description: "Para muita loucura."
+    },
+    {
+        id: 5,
+        datahash: "slide5",
+        img: "./continent/asia.jpg",
+        href: "/continent#asia",
+        title: "Asia",
+        description: "Para conhecer diferentes culturas."
+    }
+
+]

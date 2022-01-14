@@ -4,17 +4,18 @@ export const Items = ({isDrawerSidebar}) => {
     return (
         <Flex w="100%" marginBlockStart={20} marginBlockEnd={20} maxW={1480} mx="auto" px="6" >
             
-            <Wrap spacing='200px'  justify={"space-between"}>
+            <Wrap spacing='200px'  justify={"center"}>
            
-                    { 
+         
+            {
                         data.map(({image, title}) => (
-                <Box alignItems={"center"} alignContent={"center"}  >
+                <Box alignItems={"center"} alignContent={"center"}   flexDirection={"row"} display={ isDrawerSidebar ? "flex" : "block"}>
                   {  !isDrawerSidebar && <Image src={image} w="100px" h="auto" /> }
-                    <Heading size="md" my="24px" fontWeight="semibold" textAlign={"center"}>{title}</Heading>
+                    
+                  { isDrawerSidebar && <Box w="15px" h="15px" mr="5"  backgroundColor={"color.highlight"} borderRadius={"full"}></Box>}<Heading  size={!isDrawerSidebar ? "md" : 'lg'} my="24px" fontWeight="semibold" textAlign={"center"}>  {title}</Heading>
                 </Box>
                         ))
                     }
-       
             </Wrap>
         </Flex>
     )

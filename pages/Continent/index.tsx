@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, HStack, Image, Wrap } from "@chakra-ui/react"
+import { Box, Flex, Heading, HStack, Image, useBreakpointValue, Wrap } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import { Header } from "../../components/Header"
 
@@ -207,8 +207,10 @@ const data = [
 ]
 
 export default function continent() {
-
-
+    const isDrawerSidebar = useBreakpointValue({
+        base: true,
+        lg: false,
+    });
     const [index, setIndex] = useState(null)
     useEffect(() => {
         async function getIndex() {
@@ -244,13 +246,13 @@ export default function continent() {
                     </Heading>
                 </Flex>
             </Box>
-            <Flex w="100%" my="20" maxW={1480} mx="auto" px="6" marginBlockEnd={20}>
-                <Box w="50%" my="20" mx="auto" px="6">
+            <Flex w="100%" my="20" maxW={1480} mx="auto" px="6" marginBlockEnd={20} display={"flex"} flexDirection={!isDrawerSidebar ? "row": "column"}>
+                <Box w={ "100%" } my={["0", "20"]} mx="auto" px="6">
                     <Heading size="lg" color="color.dark" fontWeight="regular" lineHeight="40px" textAlign="justify" mt="20px" left="10%" bottom="10%">
                         {data[index]?.description}
                     </Heading>
                 </Box>
-                <Box w="50%" h="auto" justifyContent={"center"} alignSelf={"center"} my="20" mx="auto" ml="20" px="6">
+                <Box w={!isDrawerSidebar ? "100%" : "50%"} h="auto" justifyContent={"center"} alignSelf={"center"} my="20" mx="auto" ml={!isDrawerSidebar ? "0px" : "20px"} px="6">
                     <HStack spacing={20}>
                         <Box>
                             <Heading size="3xl" color="color.highlight" fontWeight="semibold" textAlign="center">
@@ -291,15 +293,15 @@ export default function continent() {
             </Flex>
             <Box w="100%" my="20" maxW={1480} mx="auto" px="6">
                 <Box w="100%" marginBlockEnd={20}>
-                    <Heading size="xl" color="color.dark" fontWeight="medium" >
+                    <Heading size={!isDrawerSidebar ? "3xl":"xl"} color="color.dark" fontWeight="medium" >
                         Cidades +100
                     </Heading>
                 </Box>
-                <Box w="100%">
-                    <Wrap spacing='75px' >
+                <Box w={ "100%"} display={"flex"}>
+                    <Wrap spacing={'75px'} justify={!isDrawerSidebar ? "normal" : "center"} >
                         {
                             data[index]?.cities.map((item, index) => (
-                                <Box w="300px" h="340px" borderRadius={6} marginBlockEnd={20}>
+                                <Box w={!isDrawerSidebar ? "300px" : "400px"}  h={!isDrawerSidebar ? "340px" : "440px"} borderRadius={6} marginBlockEnd={20} >
                                     <Box w="100%" h="59%">
                                         <Image src={item.url} alt='Cidade' w="100%" h="auto" />
                                     </Box>
