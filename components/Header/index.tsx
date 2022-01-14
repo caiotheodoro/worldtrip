@@ -4,7 +4,7 @@ import Link from "next/link"
 export const Header = ({hasBack}) => {
     return (
         <Flex
-            w="100vw"
+            w="100%"
             h="140px"
             align="center"
             justify="center"
