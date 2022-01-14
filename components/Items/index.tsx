@@ -4,13 +4,8 @@ export const Items = ({isDrawerSidebar}) => {
     return (
         <Flex w="100%" marginBlockStart={20} marginBlockEnd={20} maxW={1480} mx="auto" px="6" >
             
-            <Wrap spacing='75px' >
-             <HStack spacing={"200px"}
-                mx={"8"}
-                pr={"8"}
-                justify={"space-between"}
-                py="1"
-                > 
+            <Wrap spacing='200px'  justify={"space-between"}>
+           
                     { 
                         data.map(({image, title}) => (
                 <Box alignItems={"center"} alignContent={"center"}  >
@@ -20,7 +15,6 @@ export const Items = ({isDrawerSidebar}) => {
                         ))
                     }
        
-           </HStack> 
             </Wrap>
         </Flex>
     )
